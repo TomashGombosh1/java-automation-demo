@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Expedite Testes" preserve-order="true">
+    <listeners>
+        <listener class-name="common.testHelper.TestListener"/>
+        <listener class-name="common.testHelper.FailureRetryListener"/>
+    </listeners>
+    <test name="Demo Suite Test">
+        <classes>
+            <class name="tests.DemoTest"/>
+        </classes>
+    </test>
+</suite>
