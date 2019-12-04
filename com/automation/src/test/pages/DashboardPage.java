@@ -41,26 +41,21 @@ public class DashboardPage extends BasePage {
         click(searchFld);
         enterText(searchFld, "google");
         pressEnter(searchFld);
-        click(currentCompanies);
     }
 
     public void collectData() {
         Utils.sleep(4000);
-            collect();
-            scrollToView(nextButton);
-            click(nextButton);
+        collect();
     }
 
     private void collect() {
         PageElement name = new PageElement("Name of employee", By.cssSelector("ul.search-results__list li:nth-child(1) div:nth-child(2) [data-control-name='search_srp_result']"));
         PageElement position = new PageElement("Position of employee", By.cssSelector("ul.search-results__list li:nth-child(1) div:nth-child(2)  p:nth-child(2)"));
         PageElement country = new PageElement("Country of employee", By.cssSelector("ul.search-results__list li:nth-child(1) div:nth-child(2)  p:nth-child(3)"));
-        PageElement currentWorking = new PageElement("Country of employee", By.cssSelector("ul.search-results__list li:nth-child(1) div:nth-child(2)  p:nth-child(4)"));
         scrollToView(name);
         log.info(getText(name));
         log.info(getText(position));
         log.info(getText(country));
-        log.info(getText(currentWorking));
     }
 
 }
