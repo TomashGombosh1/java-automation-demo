@@ -11,16 +11,16 @@ public class DemoTest extends BaseTest {
         Assert.assertTrue(loginPage.pageIsDisplayed(), "Login page should be displayed");
         loginPage.login(Config.BASE_USERNAME, Config.BASE_PASSWORD);
         Assert.assertTrue(dashboardPage.pageIsDisplayed(), "Login page should be displayed");
-        dashboardPage.searchEmployee();
-        dashboardPage.collectData();
+//        dashboardPage.searchEmployee();
+//        dashboardPage.collectData();
     }
 
-    @Test(description = "C98765 Demo test: User can login", priority = 2)
-    public void demoFailedTest(){
-        Assert.assertTrue(loginPage.pageIsDisplayed(), "Login page should be displayed");
-        loginPage.login(Config.BASE_USERNAME, "Config.BASE_PASSWORD");
-        Assert.assertTrue(dashboardPage.pageIsDisplayed(), "Login page should be displayed");
-        dashboardPage.searchEmployee();
-        dashboardPage.collectData();
-    }
+//    @Test(description = "C98765 Demo test: User can login", priority = 2)
+//    public void demoFailedTest(){
+//        Assert.assertTrue(loginPage.pageIsDisplayed(), "Login page should be displayed");
+//        loginPage.login(Config.BASE_USERNAME, "Config.BASE_PASSWORD");
+//        Assert.assertTrue(dashboardPage.pageIsDisplayed(), "Login page should be displayed");
+//        dashboardPage.searchEmployee();
+//        dashboardPage.collectData();
+//    }
 }

@@ -7,10 +7,14 @@ import org.openqa.selenium.WebDriver;
 
 
 public class DashboardPage extends BasePage {
+	private static final PageElement headerLabel = new PageElement(
+			"Header Label",
+			By.cssSelector("h6.MuiTypography-root"),
+			true);
     private static final PageElement searchFld = new PageElement(
             "Search Field",
             By.cssSelector("input[role='combobox']"),
-            true);
+            false);
     private static final PageElement currentCompanies = new PageElement(
             "Current companies Drop Down",
             By.cssSelector("div.peek-carousel>ul>li:nth-child(3)"),
