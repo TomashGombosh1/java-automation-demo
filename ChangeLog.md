@@ -1,6 +1,6 @@
 ##Change log
 |Sections | Name test cases | Link to test-case | Done By |
-|:---:| :---:| :---:| :---:| 
+|Login page| DemoTest| :---:| Artur Karpenko| 
 | | | | |
 | | | | |
 | | | | |
