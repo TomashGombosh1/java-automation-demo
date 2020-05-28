@@ -47,8 +47,16 @@ public abstract class BasePage {
     }
 
     public void click(PageElement pageElement){
-        log.info("Clicking on element: " + pageElement.name);
-        this.find(pageElement).click();
+        click(find(pageElement), pageElement.name);
+    }
+    
+    public void click(WebElement element) {
+    	click(element, null);
+    }
+    
+    public void click(WebElement element, String name) {
+    	log.info("Clicking on element: " + (name != null ? name : element.getText()));
+    	element.click();
     }
 
     public WebElement find(By element){
@@ -213,8 +221,8 @@ public abstract class BasePage {
         this.waitToBeClickable(element.getLocator(), timeout);
     }
 
-    public void waitToBeClickable(PageElement element){
-        this.waitToBeClickable(element.getLocator(), 30);
+    public void waitToBeClickable(PageElement pageElement){
+        this.waitToBeClickable(pageElement.getLocator(), 30);
     }
 
     /**
@@ -453,7 +461,11 @@ public abstract class BasePage {
 
     protected void scrollToView(PageElement pageElement){
         WebElement element = find(pageElement.locator);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        scrollToView(element);
+    }
+    
+    protected void scrollToView(WebElement element) {
+    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         Utils.sleep(500);
     }
 }

@@ -7,10 +7,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.DashboardPage;
 import pages.LoginPage;
+import pages.MainPage;
 
 
 public class BaseTest {
 
+	protected MainPage mainPage;
     protected LoginPage loginPage;
     protected DashboardPage dashboardPage;
     public static WebDriver driver;
@@ -33,6 +35,7 @@ public class BaseTest {
      * loginPage = new LoginPage(driver);
      **/
     private void initPages() {
+    	mainPage = new MainPage(driver);
         loginPage = new LoginPage(driver);
         dashboardPage = new DashboardPage(driver);
     }

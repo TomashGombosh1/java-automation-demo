@@ -16,6 +16,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -127,12 +128,15 @@ public class DriverFactory {
         ChromeOptions chOptions = new ChromeOptions();
         Map<String, Object> chromePreferences = new HashMap<String, Object>();
 
-        chromePreferences.put("credentials_enable_service", false);
+//        chromePreferences.put("credentials_enable_service", false);
         chOptions.setExperimentalOption("prefs", chromePreferences);
         chOptions.addArguments("--disable-plugins",
-                "--disable-extensions",
+//                "--disable-extensions",
                 "--disable-popup-blocking");
-
+        
+        // Extetention for basic authentication
+        chOptions.addExtensions(new File(System.getProperty("user.dir") + "/com/automation/src/resources/credentials.zip"));
+        
         capabilities.setCapability(ChromeOptions.CAPABILITY, chOptions);
         capabilities.setCapability("applicationCacheEnable", false);
     }

@@ -1,26 +1,37 @@
 package tests;
 
-import common.Config;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class DemoTest extends BaseTest {
-
-    @Test(description = "C12345 Demo test: User can login", priority = 1)
-    public void demoTest(){
-        Assert.assertTrue(loginPage.pageIsDisplayed(), "Login page should be displayed");
-        loginPage.login(Config.BASE_USERNAME, Config.BASE_PASSWORD);
-        Assert.assertTrue(dashboardPage.pageIsDisplayed(), "Login page should be displayed");
-//        dashboardPage.searchEmployee();
-//        dashboardPage.collectData();
+    
+    @Test(description = "Check first test case")
+    public void firstTest() {
+    	Assert.assertTrue(mainPage.pageIsDisplayed(), "Main page should be displayed");
+     	mainPage.scrollToHairLossPlan();
+     	mainPage.scrollToAlternativePlans();
+    	mainPage.scrollToDoctor();
+    	mainPage.scrollToHowItWorks();
+     	mainPage.scrollToQuestions();
+    	mainPage.scrollToHelping();
+     	Assert.assertTrue(mainPage.stickyBlocIskDisplayed(), "Sticky block should be displayed");
+    }
+    
+    @Test(description = "Check second test case")
+    public void secondTest() {
+    	mainPage.scrollToHairLossPlan();
+     	mainPage.addToCartHairLossPlan();
+    	mainPage.closeMiniCart();
+     	Assert.assertTrue(mainPage.getItemCounter().equals("1"), "The item counter should be equal to 1");
+     	Assert.assertTrue(mainPage.cartButtonIsDisplayed(), "The cart button should be displayed");
+    }
+    
+    @Test(description = "Check third test case")
+    public void thirdTest() {
+    	mainPage.scrollToHairLossPlan();
+        mainPage.addToCartHairLossPlan();
+        Assert.assertTrue(mainPage.miniCartIsDisplayed(), "The mini-cart should be displayed");
+        Assert.assertTrue(mainPage.getItemCounter().equals("1"), "The item should be n one copy");
     }
 
-//    @Test(description = "C98765 Demo test: User can login", priority = 2)
-//    public void demoFailedTest(){
-//        Assert.assertTrue(loginPage.pageIsDisplayed(), "Login page should be displayed");
-//        loginPage.login(Config.BASE_USERNAME, "Config.BASE_PASSWORD");
-//        Assert.assertTrue(dashboardPage.pageIsDisplayed(), "Login page should be displayed");
-//        dashboardPage.searchEmployee();
-//        dashboardPage.collectData();
-//    }
 }
