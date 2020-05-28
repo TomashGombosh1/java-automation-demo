@@ -8,15 +8,15 @@ public class LoginPage extends BasePage {
 
     private static final PageElement userNameFld = new PageElement(
             "User Name Field",
-            By.id("username"),
+            By.id("user"),
             true);
     private static final PageElement passwordFld = new PageElement(
             "Password Field",
-            By.id("password"),
+            By.id("pass"),
             true);
     private static final PageElement signInBtn = new PageElement(
             "Sign In Button",
-            By.cssSelector("button[type='submit']"),
+            By.cssSelector("button[class='MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary']"),
             true);
 
     public LoginPage(WebDriver driver) {
